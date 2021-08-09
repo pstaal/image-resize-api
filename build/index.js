@@ -5,10 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var sharp_1 = __importDefault(require("sharp"));
+var path_1 = __importDefault(require("path"));
 var app = express_1.default();
 var port = 3000;
-var inputFile = '../images/full/fjord.jpg';
-var outputFile = '../images/resized/outputfile.jpg';
+var inputFile = path_1.default.resolve('images/full', "fjord.jpg");
+var outputFile = path_1.default.resolve("images/resized", "output.jpg");
 app.listen(port, function () {
     console.log("App listening at http://localhost:" + port);
 });
