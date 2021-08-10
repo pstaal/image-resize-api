@@ -5,7 +5,7 @@ import path from 'path';
 const app = express();
 const port = 3000;
 const inputFile = path.resolve('images/full', "fjord.jpg");
-const outputFile = path.resolve("images/resized", "output.jpg");
+const outputFile = path.resolve("images/thumb", "output.jpg");
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
