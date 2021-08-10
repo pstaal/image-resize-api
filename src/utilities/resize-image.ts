@@ -1,11 +1,10 @@
 import sharp from 'sharp';
-import {promises as fsPromises} from fs;
 import path from 'path';
 import fs from 'fs';
 
 
 
-const resizeImage = (filename: string, width: string, height: string): void => {
+const resizeImage = (filename: string, width: number, height: number): string => {
 
 let inputFile;
 try {
@@ -15,17 +14,21 @@ catch(error) {
   console.log(error.message);
 }
 
-//remove jpg extension
-let fileString = filename.slice(0, -4);
+
 // create path for output file
-const outputFile = path.resolve("images/thumb", `${width}-${height}-${fileString}.jpg`);
+const outputFile = path.resolve("images/thumb", `${width}-${height}-${filename}.jpg`);
 
-
+if (fs.existsSync(outputFile)) {
+  return outputFile;
+}
+else {
 sharp(inputFile)
 .resize(width, height)
 .toFile(outputFile).then(info => { console.log(info) })
 .catch((error) => console.log(error.message))
+};
 
+return outputFile;
 
 };
 
