@@ -8,7 +8,7 @@ const resizeImage = (filename: string, width: number, height: number): string =>
 
 let inputFile;
 try {
-inputFile = path.resolve(filename);
+inputFile = path.resolve('images/full', `${filename}.jpg`);
 } 
 catch(error) {
   console.log(error.message);
