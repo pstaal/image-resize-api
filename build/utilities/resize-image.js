@@ -9,7 +9,7 @@ var fs_1 = __importDefault(require("fs"));
 var resizeImage = function (filename, width, height) {
     var inputFile;
     try {
-        inputFile = path_1.default.resolve(filename);
+        inputFile = path_1.default.resolve('images/full', filename + ".jpg");
     }
     catch (error) {
         console.log(error.message);
