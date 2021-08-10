@@ -10,5 +10,5 @@ var port = 3000;
 app.listen(port, function () {
     console.log("App listening at http://localhost:" + port);
 });
-app.use('/main', index_1.default);
+app.use('/api', index_1.default);
 exports.default = app;

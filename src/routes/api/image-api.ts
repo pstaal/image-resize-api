@@ -4,11 +4,11 @@ const imageApi = express.Router();
 
 imageApi.get('/', (req, res) => {
 
-  let filename = req.query.filename;
-  let width = req.query.width;
-  let height = req.query.height;
+  let filename: string = req.query.filename;
+  let width: number = req.query.width;
+  let height: number = req.query.height;
 
-  res.sendFile(resizeImage(filename: string, width: number, height:number): string);
+  res.sendFile(resizeImage(filename, width, height));
 
 });
 
