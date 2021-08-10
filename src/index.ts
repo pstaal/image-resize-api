@@ -1,6 +1,7 @@
 import express from 'express';
 import sharp from 'sharp';
 import path from 'path';
+import routes from './routes/index';
 
 const app = express();
 const port = 3000;
@@ -11,18 +12,7 @@ app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
 
+app.use('/main', routes);
 
-app.get('/image', (req, res) => {
-  res.send('Resizing the image');
-  try {
-    sharp(inputFile)
-      .resize(125, 125)
-      .toFile(outputFile).then(info => { console.log(info) })
-      .catch((error) => console.log(error.message))
-  } catch (error) {
-    console.log(error.message);
-  }
-
-})
 
 export default app;
