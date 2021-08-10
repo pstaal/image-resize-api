@@ -9,7 +9,7 @@ app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
 
-app.use('/main', routes);
+app.use('/api', routes);
 
 
 export default app;

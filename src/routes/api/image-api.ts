@@ -8,7 +8,7 @@ imageApi.get('/', (req, res) => {
   let width = req.query.width;
   let height = req.query.height;
 
-  res.sendFile(resizeImage(filename, width, height));
+  res.sendFile(resizeImage(filename: string, width: number, height:number): string);
 
 });
 
