@@ -7,7 +7,7 @@ const request = supertest(app);
 
 describe('Test endpoint responses', () => {
   it('gets the image endpoint', async (done) => {
-    const response = await request.get('/api/image');
+    const response = await request.get('/api/image?filename=fjord&width=200&height=200');
     expect(response.status).toBe(200);
     done();
   }
