@@ -11,11 +11,14 @@ imageApi.get('/', async (req, res) => {
   let width = parseInt(req.query.width as string);
   let height = parseInt(req.query.height as string);
   if( !filename || !width || !height) {
-    res.send('Please provide a filename, a width and a height in the url')
+    throw new Error('Please provide a filename, a width and a height in the url!')
   }
 
   // create path for input file
   let inputFile = path.resolve("images/full", `${filename}.jpg`);
+  if (!fs.existsSync(inputFile)){
+    throw new Error('This file does not exist, please provide another filename!')
+  }
   
   // create path for output file
   let outputFile = path.resolve("images/thumb", `${width}-${height}-${filename}.jpg`);
