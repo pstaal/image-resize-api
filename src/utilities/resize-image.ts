@@ -11,7 +11,7 @@ await sharp(inputfile)
 .toFile(outputfile).then(info => { console.log(info) })
 .catch((error) => console.log(error.message))
 } catch(error) {
-  console.log(error.message)
+  alert(error.message)
 }
 
 return outputfile;
