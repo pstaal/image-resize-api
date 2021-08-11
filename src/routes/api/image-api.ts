@@ -11,7 +11,7 @@ imageApi.get('/', async (req, res) => {
   let width: number = parseInt(req.query.width);
   let height: number = parseInt(req.query.height);
   if( !filename || !width || !height) {
-    res.send('Please provide a filename, a width and a height')
+    res.send('Please provide a filename, a width and a height in the url')
   }
 
   // create path for input file
