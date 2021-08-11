@@ -12,10 +12,10 @@ imageApi.get('/', async (req, res) => {
   let height: number = parseInt(req.query.height);
 
   // create path for input file
-  let inputFile = path.resolve(__dirname, `images/full/${filename}.jpg`);
+  let inputFile = path.resolve("images/full", `${filename}.jpg`);
   
   // create path for output file
-  let outputFile = path.resolve(__dirname, `images/thumb/${width}-${height}-${filename}.jpg`);
+  let outputFile = path.resolve("images/thumb", `${width}-${height}-${filename}.jpg`);
 
   // check if the file already exists
   if (fs.existsSync(outputFile)) {
