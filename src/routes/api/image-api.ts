@@ -11,13 +11,13 @@ imageApi.get('/', async (req: Request, res: Response) => {
   let width = parseInt(req.query.width as string);
   let height = parseInt(req.query.height as string);
   if( !filename || !width || !height) {
-    throw new Error('Please provide a filename, a width and a height in the url!')
+    return res.status(404).send("Please provide a filename, a width and a height in the url");
   }
 
   // create path for input file
   let inputFile = path.resolve("images/full", `${filename}.jpg`);
   if (!fs.existsSync(inputFile)){
-    throw new Error('This file does not exist, please provide another filename!')
+    return res.status(404).send("File not found - check the name and try again");
   }
   
   // create path for output file
