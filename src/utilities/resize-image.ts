@@ -3,7 +3,8 @@ import sharp from 'sharp';
 
 
 const resizeImage = async (inputfile: string, outputfile: string, width: number, height: number): string => {
-
+console.log(inputfile);
+console.log(outputfile);
 try {
 await sharp(inputfile)
 .resize(width, height)

@@ -45,19 +45,23 @@ var resizeImage = function (inputfile, outputfile, width, height) { return __awa
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
+                console.log(inputfile);
+                console.log(outputfile);
+                _a.label = 1;
+            case 1:
+                _a.trys.push([1, 3, , 4]);
                 return [4 /*yield*/, sharp_1.default(inputfile)
                         .resize(width, height)
                         .toFile(outputfile).then(function (info) { console.log(info); })
                         .catch(function (error) { return console.log(error.message); })];
-            case 1:
-                _a.sent();
-                return [3 /*break*/, 3];
             case 2:
+                _a.sent();
+                return [3 /*break*/, 4];
+            case 3:
                 error_1 = _a.sent();
                 console.log(error_1.message);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/, outputfile];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/, outputfile];
         }
     });
 }); };

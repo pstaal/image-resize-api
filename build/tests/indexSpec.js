@@ -41,6 +41,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var supertest_1 = __importDefault(require("supertest"));
 var index_1 = __importDefault(require("../index"));
+var resize_image_1 = __importDefault(require("../utilities/resize-image"));
 var request = supertest_1.default(index_1.default);
 describe('Test endpoint responses', function () {
     it('gets the image endpoint', function (done) { return __awaiter(void 0, void 0, void 0, function () {
@@ -51,6 +52,23 @@ describe('Test endpoint responses', function () {
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(200);
+                    done();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+});
+describe('resizeImage function tests', function () {
+    var inputfile = '/Users/peterstaal/Desktop/udacity/image-project-api/images/full/fjord.jpg';
+    var outputfile = '/Users/peterstaal/Desktop/udacity/image-project-api/images/thumb/200-200-fjord.jpg';
+    it('returns the right outputfile', function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, resize_image_1.default(inputfile, outputfile, 200, 200)];
+                case 1:
+                    response = _a.sent();
+                    expect(response).toBe(outputfile);
                     done();
                     return [2 /*return*/];
             }
