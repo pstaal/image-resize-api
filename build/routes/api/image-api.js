@@ -53,9 +53,12 @@ imageApi.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0,
                 width = parseInt(req.query.width);
                 height = parseInt(req.query.height);
                 if (!filename || !width || !height) {
-                    res.send('Please provide a filename, a width and a height in the url');
+                    throw new Error('Please provide a filename, a width and a height in the url!');
                 }
                 inputFile = path_1.default.resolve("images/full", filename + ".jpg");
+                if (!fs_1.default.existsSync(inputFile)) {
+                    throw new Error('This file does not exist, please provide another filename!');
+                }
                 outputFile = path_1.default.resolve("images/thumb", width + "-" + height + "-" + filename + ".jpg");
                 if (!fs_1.default.existsSync(outputFile)) return [3 /*break*/, 1];
                 res.sendFile(outputFile);

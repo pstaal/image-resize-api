@@ -1,11 +1,11 @@
-import express from 'express';
+import { Router, Request, Response } from "express";
 import resizeImage from '../../utilities/resize-image';
 import path from 'path';
 import fs from 'fs';
-const imageApi = express.Router();
+const imageApi : Router= Router();
 
 
-imageApi.get('/', async (req, res) => {
+imageApi.get('/', async (req: Request, res: Response) => {
 
   let filename= req.query.filename as string;
   let width = parseInt(req.query.width as string);

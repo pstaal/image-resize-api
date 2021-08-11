@@ -1,8 +1,8 @@
-import express from 'express';
-const routes = express.Router();
+import { Router, Request, Response } from "express";
+const routes: Router = Router();
 import imageApi from './api/image-api';
 
-routes.get('/', (req,res)=> {
+routes.get('/', (req: Request,res: Response)=> {
   res.send('Main api route!')
 });
 

@@ -59,7 +59,7 @@ var resizeImage = function (inputfile, outputfile, width, height) { return __awa
                 return [3 /*break*/, 4];
             case 3:
                 error_1 = _a.sent();
-                console.log(error_1.message);
+                alert(error_1.message);
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/, outputfile];
         }
