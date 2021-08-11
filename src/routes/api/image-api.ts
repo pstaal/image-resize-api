@@ -7,9 +7,9 @@ const imageApi = express.Router();
 
 imageApi.get('/', async (req, res) => {
 
-  let filename: string = req.query.filename;
-  let width: number = parseInt(req.query.width);
-  let height: number = parseInt(req.query.height);
+  let filename= req.query.filename as string;
+  let width = parseInt(req.query.width as string);
+  let height = parseInt(req.query.height as string);
   if( !filename || !width || !height) {
     res.send('Please provide a filename, a width and a height in the url')
   }

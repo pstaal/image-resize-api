@@ -2,7 +2,7 @@ import sharp from 'sharp';
 
 
 
-const resizeImage = async (inputfile: string, outputfile: string, width: number, height: number): string => {
+const resizeImage = async (inputfile: string, outputfile: string, width: number, height: number): Promise<string> => {
 console.log(inputfile);
 console.log(outputfile);
 try {
