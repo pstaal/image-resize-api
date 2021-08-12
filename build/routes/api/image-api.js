@@ -39,11 +39,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = __importDefault(require("express"));
+var express_1 = require("express");
 var resize_image_1 = __importDefault(require("../../utilities/resize-image"));
 var path_1 = __importDefault(require("path"));
 var fs_1 = __importDefault(require("fs"));
-var imageApi = express_1.default.Router();
+var imageApi = express_1.Router();
 imageApi.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var filename, width, height, inputFile, outputFile;
     return __generator(this, function (_a) {
@@ -53,11 +53,11 @@ imageApi.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0,
                 width = parseInt(req.query.width);
                 height = parseInt(req.query.height);
                 if (!filename || !width || !height) {
-                    throw new Error('Please provide a filename, a width and a height in the url!');
+                    return [2 /*return*/, res.status(404).send("Please provide a filename, a width and a height in the url")];
                 }
                 inputFile = path_1.default.resolve("images/full", filename + ".jpg");
                 if (!fs_1.default.existsSync(inputFile)) {
-                    throw new Error('This file does not exist, please provide another filename!');
+                    return [2 /*return*/, res.status(404).send("File not found - check the name and try again")];
                 }
                 outputFile = path_1.default.resolve("images/thumb", width + "-" + height + "-" + filename + ".jpg");
                 if (!fs_1.default.existsSync(outputFile)) return [3 /*break*/, 1];
